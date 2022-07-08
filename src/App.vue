@@ -1,17 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>{{ title }}</h1>
+  <p>Welcome...</p>
+  <!-- by putting the : before header and text, we are "binding" to the data
+  We could just have header="Sign up ..." but we moved it to the 
+  data function so we bind to it like below 
+  -->
+  <div v-if="showModal">
+    <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+  </div>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Modal from './components/Modal';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: { Modal },
+  data() {
+    return {
+      title: 'My First Vue App :)',
+      header: 'Sign up for the giveaway!',
+      text: 'Grab your ninja swag for half price!',
+      showModal: false,
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+  },
+};
 </script>
 
 <style>
@@ -22,5 +41,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 </style>
