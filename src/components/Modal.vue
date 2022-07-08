@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+  <div class="backdrop" @click.self="closeModal">
     <!--
       Even though we have a class="modal" we can add another
       class to data bind to.  This will be a dynamic class
