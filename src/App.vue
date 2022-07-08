@@ -5,7 +5,7 @@
   We could just have header="Sign up ..." but we moved it to the 
   data function so we bind to it like below 
   -->
-  <teleport to=".modals" v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
     <Modal theme="sale" @close="toggleModal">
       <template v-slot:links>
         <a href="#">Sign Up now</a>
@@ -16,7 +16,7 @@
     </Modal>
   </teleport>
 
-  <teleport to=".modals" v-if="showModal2">
+  <teleport to="#modals" v-if="showModal2">
     <Modal @close="toggleModal2">
       <h1>Free Judo Lessons</h1>
       <p>Take a flying lessing from a judo master!</p>
@@ -52,7 +52,7 @@ export default {
 
 <style>
 #app,
-.modal {
+#modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
